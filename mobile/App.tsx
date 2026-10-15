@@ -5,7 +5,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { WebView, type WebViewMessageEvent } from 'react-native-webview';
 
 // Point this at any site, e.g. the web quiz: EXPO_PUBLIC_WEBSITE_URL=http://192.168.1.10:5173
-const WEBSITE_URL = process.env.EXPO_PUBLIC_WEBSITE_URL ?? 'https://en.wikipedia.org/wiki/Chess';
+const WEBSITE_URL = process.env.EXPO_PUBLIC_WEBSITE_URL ?? 'https://chess-quiz-three.vercel.app/';
 
 type PageData = {
   title: string;
