@@ -40,7 +40,8 @@ const EXTRACT_DATA_JS = `
 `;
 
 export default function App() {
-  const webViewRef = useRef<WebView>(null);
+  // react-native-webview 14 defaults the extra-props param to `undefined`, which collapses its props to `never`.
+  const webViewRef = useRef<WebView<object>>(null);
   const [data, setData] = useState<PageData | null>(null);
   const [showData, setShowData] = useState(false);
   const [canGoBack, setCanGoBack] = useState(false);
@@ -89,7 +90,7 @@ export default function App() {
         ) : null}
 
         <View style={[styles.flex, (showData || error) && styles.hidden]}>
-          <WebView
+          <WebView<object>
             ref={webViewRef}
             source={{ uri: WEBSITE_URL }}
             injectedJavaScript={EXTRACT_DATA_JS}
