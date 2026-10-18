@@ -146,6 +146,12 @@ export default function App() {
           onMenu={() => setPhase("setup")}
         />
       )}
+
+      <footer>
+        <a className="link" href="/privacy/">
+          {t.privacy}
+        </a>
+      </footer>
     </main>
   );
 }

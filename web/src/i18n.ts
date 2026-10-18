@@ -26,6 +26,7 @@ export const STRINGS = {
     review: "Review your mistakes",
     again: "Play again",
     settings: "Change settings",
+    privacy: "Privacy",
   },
   hy: {
     title: "Շախմատային վիկտորինա",
@@ -48,6 +49,7 @@ export const STRINGS = {
     review: "Վերանայեք ձեր սխալները",
     again: "Խաղալ նորից",
     settings: "Փոխել կարգավորումները",
+    privacy: "Գաղտնիություն",
   },
   ru: {
     title: "Шахматная викторина",
@@ -70,6 +72,7 @@ export const STRINGS = {
     review: "Разбор ошибок",
     again: "Сыграть ещё",
     settings: "Изменить настройки",
+    privacy: "Конфиденциальность",
   },
 } satisfies Record<Lang, unknown>;
 
