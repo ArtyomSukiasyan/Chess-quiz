@@ -19,6 +19,7 @@
       },
       "predictiveBackGestureEnabled": false
     },
+    "backgroundColor": "#f1f3fa",
     "web": {
       "favicon": "./assets/favicon.png"
     },

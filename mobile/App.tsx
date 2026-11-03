@@ -100,7 +100,7 @@ export default function App() {
             startInLoadingState
             renderLoading={() => (
               <View style={styles.center}>
-                <ActivityIndicator size="large" />
+                <ActivityIndicator size="large" color={colors.primary} />
               </View>
             )}
             pullToRefreshEnabled
@@ -127,8 +127,18 @@ export default function App() {
   );
 }
 
+// Palette shared with the web quiz and the Chess-clock app.
+const colors = {
+  surface: '#f1f3fa',
+  primary: '#1a1146',
+  text: '#1c1b29',
+  muted: '#6b6a80',
+  line: '#e2e1ec',
+  wrong: '#d1453b',
+};
+
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
+  container: { flex: 1, backgroundColor: colors.surface },
   flex: { flex: 1 },
   hidden: { display: 'none' },
   header: {
@@ -137,16 +147,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 6,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#ccc',
+    borderBottomColor: colors.line,
   },
-  title: { flex: 1, textAlign: 'center', fontWeight: '600', fontSize: 16 },
+  title: { flex: 1, textAlign: 'center', fontWeight: '600', fontSize: 16, color: colors.primary },
   button: { paddingHorizontal: 10, paddingVertical: 6 },
-  buttonText: { color: '#007aff', fontSize: 16 },
-  disabled: { color: '#bbb' },
+  buttonText: { color: colors.primary, fontSize: 16, fontWeight: '600' },
+  disabled: { color: colors.line },
   center: { ...StyleSheet.absoluteFill, alignItems: 'center', justifyContent: 'center', gap: 12 },
   errorBox: { alignItems: 'center', justifyContent: 'center', gap: 12 },
-  error: { color: '#c00', textAlign: 'center', paddingHorizontal: 24 },
+  error: { color: colors.wrong, textAlign: 'center', paddingHorizontal: 24 },
   dataContent: { padding: 16, gap: 4 },
-  label: { marginTop: 12, fontWeight: '700', color: '#555' },
-  value: { fontSize: 15 },
+  label: { marginTop: 12, fontWeight: '700', color: colors.muted },
+  value: { fontSize: 15, color: colors.text },
 });
