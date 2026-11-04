@@ -28,6 +28,7 @@ export const STRINGS = {
     settings: "Change settings",
     privacy: "Privacy",
     back: "Back",
+    explanation: "Explanation",
   },
   hy: {
     title: "Շախմատային վիկտորինա",
@@ -52,6 +53,7 @@ export const STRINGS = {
     settings: "Փոխել կարգավորումները",
     privacy: "Գաղտնիություն",
     back: "Հետ",
+    explanation: "Բացատրություն",
   },
   ru: {
     title: "Шахматная викторина",
@@ -76,6 +78,7 @@ export const STRINGS = {
     settings: "Изменить настройки",
     privacy: "Конфиденциальность",
     back: "Назад",
+    explanation: "Пояснение",
   },
 } satisfies Record<Lang, unknown>;
 

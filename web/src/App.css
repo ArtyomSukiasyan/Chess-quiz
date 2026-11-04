@@ -214,6 +214,41 @@ footer {
   line-height: 1.45;
 }
 
+.explanation {
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.explanation summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+  list-style: none;
+}
+
+.explanation summary::-webkit-details-marker {
+  display: none;
+}
+
+.explanation summary::after {
+  content: "▾";
+}
+
+.explanation[open] summary::after {
+  content: "▴";
+}
+
+.explanation p {
+  margin: 0;
+  padding: 0 16px 14px;
+}
+
 /* Summary */
 
 .stats {

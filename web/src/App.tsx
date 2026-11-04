@@ -267,7 +267,13 @@ function Play(props: {
       <div className="feedback" aria-live="polite">
         {picked !== null && (
           <>
-            <strong className={right ? "good" : "bad"}>{right ? t.correct : t.wrong}</strong> {text.explanation}
+            <strong className={right ? "good" : "bad"}>{right ? t.correct : t.wrong}</strong>
+            {text.explanation && (
+              <details className="explanation">
+                <summary>{t.explanation}</summary>
+                <p>{text.explanation}</p>
+              </details>
+            )}
           </>
         )}
       </div>

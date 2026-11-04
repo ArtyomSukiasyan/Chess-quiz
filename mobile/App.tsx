@@ -121,7 +121,7 @@ export default function App() {
           )}
 
           {phase === 'playing' && current && (
-            <Play t={t} lang={lang} item={current} index={index} total={round.length} score={score} picked={picked} onPick={pick} onNext={next} />
+            <Play key={index} t={t} lang={lang} item={current} index={index} total={round.length} score={score} picked={picked} onPick={pick} onNext={next} />
           )}
 
           {phase === 'done' && (
@@ -223,6 +223,7 @@ function Play(props: {
   const { question: q, order } = item;
   const text = q[props.lang];
   const right = picked === q.answer;
+  const [showExplanation, setShowExplanation] = useState(false);
 
   return (
     <View style={styles.section}>
@@ -260,10 +261,23 @@ function Play(props: {
 
       {picked !== null && (
         <>
-          <Text style={styles.feedback} accessibilityLiveRegion="polite">
-            <Text style={[styles.bold, right ? styles.good : styles.bad]}>{right ? t.correct : t.wrong}</Text>{' '}
-            {text.explanation}
+          <Text style={[styles.feedback, styles.bold, right ? styles.good : styles.bad]} accessibilityLiveRegion="polite">
+            {right ? t.correct : t.wrong}
           </Text>
+          {text.explanation ? (
+            <View style={styles.dropdown}>
+              <Pressable
+                style={styles.dropdownHeader}
+                onPress={() => setShowExplanation((v) => !v)}
+                accessibilityRole="button"
+                accessibilityState={{ expanded: showExplanation }}
+              >
+                <Text style={styles.dropdownTitle}>{t.explanation}</Text>
+                <Text style={styles.dropdownTitle}>{showExplanation ? '▴' : '▾'}</Text>
+              </Pressable>
+              {showExplanation && <Text style={styles.dropdownBody}>{text.explanation}</Text>}
+            </View>
+          ) : null}
           <PrimaryButton label={props.index + 1 < props.total ? t.next : t.results} onPress={props.onNext} />
         </>
       )}
@@ -409,6 +423,10 @@ const styles = StyleSheet.create({
   },
   optionText: { flex: 1, fontSize: 16, color: colors.text },
   feedback: { fontSize: 15, lineHeight: 22, color: colors.text },
+  dropdown: { borderWidth: 1, borderColor: colors.border, borderRadius: radius, backgroundColor: colors.surface, overflow: 'hidden' },
+  dropdownHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 12, paddingHorizontal: 16 },
+  dropdownTitle: { fontSize: 15, fontWeight: '600', color: colors.accent },
+  dropdownBody: { fontSize: 15, lineHeight: 22, color: colors.text, paddingHorizontal: 16, paddingBottom: 14 },
   bold: { fontWeight: '700', color: colors.text },
   good: { color: colors.correct },
   bad: { color: colors.wrong },
